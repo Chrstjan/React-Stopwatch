@@ -5,6 +5,7 @@ import "./App.scss";
 
 function App() {
   const [isCounting, setIsCounting] = useState(false);
+  const [seconds, setSeconds] = useState(0);
 
 
   const handleStartTimer = () => {
@@ -19,6 +20,7 @@ function App() {
     let time = 0;
     if (isCounting == true) {
        time = setInterval(() => {
+        setSeconds(prevSeconds => prevSeconds + 1)
         console.log("Hello");
         
       }, 1000)
@@ -26,7 +28,11 @@ function App() {
     else {
       clearInterval(time);
     }
-
+    return () => {
+      if (time) {
+        clearInterval(time)
+      }
+    }
   }, [isCounting])
 
   console.log(isCounting);
@@ -34,6 +40,7 @@ function App() {
   return (
     <>
       <h1>React Stopwatch</h1>
+      <p>{seconds}</p>
       <section className="btn-container">
         <Button action={() => handleStartTimer()} text='Start' type='start'/>
         <Button action={() => handleStopTimer()} text='Stop' type={'stop'}/>
