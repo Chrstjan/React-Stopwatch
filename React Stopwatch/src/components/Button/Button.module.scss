@@ -1,0 +1,14 @@
+.buttonStyling {
+    border: 2px solid #000;
+    border-radius: 6px;
+    background: #eee;
+    padding: 0.8rem 2.5rem;
+
+    &.start {
+        background: lightblue;
+    }
+
+    &.stop {
+        background: lightcoral;
+    }
+}
