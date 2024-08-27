@@ -25,7 +25,6 @@ function App() {
     if (isCounting == true) {
       time = setInterval(() => {
         setSeconds((prevSeconds) => prevSeconds + 1);
-        console.log("Hello");
       }, 1000);
     }
     return () => {
@@ -35,7 +34,6 @@ function App() {
     };
   }, [isCounting]);
 
-  console.log(isCounting);
 
   return (
     <>
